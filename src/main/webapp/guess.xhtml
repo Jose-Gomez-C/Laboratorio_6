@@ -4,21 +4,22 @@
 	  xmlns:p="http://primefaces.org/ui"
           xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
 	  
-	  
- 	<h:head> 
-           
-           Bienvenido, escoja un numero entre 1 y 10
- 
-           
-        </h:head>
- 
- 
+	<link rel="stylesheet" type="text/css" href="style.css"></link>  
+ 	<h:head>
+        <h1> Bienvenido, escoja un numero entre 1 y 10</h1> 
+        <br></br>
+        <h1>
+            <img src="/resources/m.gif" alt="Funny image"></img>
+        </h1>
+    </h:head>
+
 	<h:body>
 		<h:form id="guess_form">
-                    
+            <h2>                
                         <p:outputLabel 
                             value="#{guessBean.getNumeroAdivinar()}" style = "display: none;">
                         </p:outputLabel>
+
                         <br>  </br>
                         <br>  </br>
 			
@@ -61,6 +62,7 @@
                             </p:column>
                             
                         </p:dataTable>
+            </h2>
                             
                             
                          
