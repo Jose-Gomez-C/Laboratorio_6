@@ -27,11 +27,15 @@ public class Logica {
 		numeroIntentos=0;
                 intentos= new ArrayList();
                 estadoBol = false;
+
 	}
 	public void guess(int numeroUsuario) {
-                if (estadoBol || puntaje == 0) {
-                    return;
-                }
+
+		System.out.println(numeroUsuario == null);
+	
+        if (estadoBol || puntaje == 0) {
+            return;
+        }
                 
 		if (numeroAdivinar != numeroUsuario) {
                         puntaje-=10000;
@@ -46,7 +50,7 @@ public class Logica {
 	}
 	public void restart() {
 		estado = "Usted no ha ganado!";
-		numeroAdivinar=(int) ((Math.random() * ((11 - 1) + 1)) + 1);
+		numeroAdivinar=(int) ((Math.random() * ((10 - 1) + 1)) + 1);
 		puntaje=100000;
 		numeroIntentos=0;
                 intentos=new ArrayList();

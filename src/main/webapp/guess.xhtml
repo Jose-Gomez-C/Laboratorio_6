@@ -9,51 +9,44 @@
         <h1> Bienvenido, escoja un numero entre 1 y 10</h1> 
         <br></br>
         <h1>
-            <img src="/resources/m.gif" alt="Funny image"></img>
+            <!-- <img src="/resources/m.gif" alt="Funny image"></img> -->
         </h1>
     </h:head>
 
 	<h:body>
+        <div id = "cuadro">
 		<h:form id="guess_form">
-            <h2>                
-                        <p:outputLabel 
-                            value="#{guessBean.getNumeroAdivinar()}" style = "display: none;">
-                        </p:outputLabel>
 
-                        <br>  </br>
-                        <br>  </br>
-			
-                        <p:outputLabel value="Numero de intentos: " />
-			<p:inputText 
-                            id="numero" binding="#{numero}">
-                        </p:inputText>
-                        
-                        <br>  </br>
-                        <p:outputLabel value="Numero de intentos: #{guessBean.getNumeroIntentos()}" />
-                        <br> </br>
-                        
-                        <p:outputLabel value="#{guessBean.getEstado()}" />
-			<br> </br>                       
-                        
-                        <p:outputLabel value="Su premio es: $#{guessBean.getPuntaje()}" />
-			<br> </br>
-                        <br></br>
-                        
-                        
-                        
-                        <p:commandButton 
+            <p:outputLabel 
+                            value="#{guessBean.getNumeroAdivinar()}" >
+                        </p:outputLabel>
+            <h:panelGrid id = "panel" border = "3" columns = "2" >
+
+                
+                <h:panelGroup>
+                    <p:outputLabel value="Digite un número: "/>
+                    
+                    <p:inputText 
+                        id="numero" binding="#{numero}">
+                    </p:inputText>
+                </h:panelGroup>
+
+                <p:outputLabel value=""/>
+                <p:outputLabel value="Numero de intentos: #{guessBean.getNumeroIntentos()}" />
+                
+                <p:commandButton 
                              value=" Try it! "  actionListener="#{guessBean.guess(numero.value)}" update="guess_form" />
-                        
-                        <p:commandButton 
+                
+                <p:outputLabel value="Estado: #{guessBean.getEstado()}" />
+                <p:commandButton 
                              value=" Reset " update="guess_form" actionListener="#{guessBean.restart()}">
-                        </p:commandButton>
-                       
-                       
-			<br> </br>
-                        <br></br>                  
-                        <br> </br>
-                        <br></br>
-                        <p:dataTable  value ="#{guessBean.intentos}" var ="item" >
+                </p:commandButton>
+                <p:outputLabel value="Su premio es: $#{guessBean.getPuntaje()}" />
+
+            
+                
+	        </h:panelGrid>
+            <p:dataTable  value ="#{guessBean.intentos}" var ="item" >
                             
                             <p:column headerText="Intentos" filterMatchMode="contains" >
                                 <p.center>
@@ -62,17 +55,8 @@
                             </p:column>
                             
                         </p:dataTable>
-            </h2>
-                            
-                            
-                         
-                
-                        
-	
-			
-	
-		
 		</h:form>
+        </div>
 	</h:body> 
 
 </html>
