@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @ManagedBean(name="guessBean")
-@ApplicationScoped
+@SessionScoped
 public class Logica {
 	private int numeroAdivinar;
 	private int numeroIntentos;
@@ -30,10 +30,8 @@ public class Logica {
 
 	}
 	public void guess(int numeroUsuario) {
-
-		System.out.println(numeroUsuario == null);
 	
-        if (estadoBol || puntaje == 0) {
+        if (estadoBol || puntaje == 0 || numeroUsuario == 0) {
             return;
         }
                 
@@ -80,9 +78,12 @@ public class Logica {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-        public List<Integer> getIntentos(){
+    public List<Integer> getIntentos(){
             return intentos;
-        }
+    }
+    public boolean getEstadoBol() {
+    	return estadoBol;
+    }
         
         
 }

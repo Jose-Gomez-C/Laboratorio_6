@@ -6,19 +6,17 @@
 	  
 	<link rel="stylesheet" type="text/css" href="style.css"></link>  
  	<h:head>
-        <h1> Bienvenido, escoja un numero entre 1 y 10</h1> 
-        <br></br>
-        <h1>
-            <!-- <img src="/resources/m.gif" alt="Funny image"></img> -->
-        </h1>
+        <!--<h1> Bienvenido, escoja un numero entre 1 y 10</h1> -->
+       
     </h:head>
 
 	<h:body>
+    <body background="/resources/imagen.gif">
         <div id = "cuadro">
 		<h:form id="guess_form">
-
+            <br></br><br></br><br></br>
             <p:outputLabel 
-                            value="#{guessBean.getNumeroAdivinar()}" >
+                            value="#{guessBean.getNumeroAdivinar()}" style = "display: none;">
                         </p:outputLabel>
             <h:panelGrid id = "panel" border = "3" columns = "2" >
 
@@ -46,6 +44,7 @@
             
                 
 	        </h:panelGrid>
+            <br></br>
             <p:dataTable  value ="#{guessBean.intentos}" var ="item" >
                             
                             <p:column headerText="Intentos" filterMatchMode="contains" >
@@ -57,6 +56,7 @@
                         </p:dataTable>
 		</h:form>
         </div>
+    </body>
 	</h:body> 
 
 </html>
